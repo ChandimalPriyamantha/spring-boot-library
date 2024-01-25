@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:sqlserver://libraryserver1234.database.windows.net:1433;database=libraryDB;user=sqladmin@libraryserver1234;password={nokialumia17997CHANDIMAL};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
+    username: sqladmin
+    password: nokialumia17997CHANDIMAL
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      dialect : org.hibernate.dialect.SQLServer2012Dialect
+
+server:
+  port: 8080
+
