@@ -15,11 +15,26 @@ public class BookController {
 
     @Autowired
     public BookController(BookService bookService) {
+
         this.bookService = bookService;
     }
 
+    @GetMapping("secure/currentloans/count")
+    public int currentLoansCount(@RequestHeader(value= "Authorization")String token){
+        String userEmail = "testuser@email.com";
+        return bookService.currentLoansCount(userEmail);
+    }
+
+    @GetMapping("secure/ischeckedout/byuser")
+    public boolean checkoutBookByUser(@RequestHeader(value= "Authorization")String token, @RequestParam Long bookId){
+
+        String userEmail = "testuser@email.com";
+        return  bookService.checkoutBookByUser(userEmail, bookId);
+
+    }
+
     @PutMapping("/secure/checkout")
-    public Book checkout (@RequestParam Long bookId) throws Exception{
+    public Book checkout (@RequestHeader(value= "Authorization")String token, @RequestParam Long bookId) throws Exception{
         String userEmail = "testuser@email.com";
         return bookService.checkoutBook(userEmail,bookId);
     }
