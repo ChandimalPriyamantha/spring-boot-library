@@ -3,6 +3,7 @@ package com.chandimal.springbootlibrary.controller;
 
 import com.chandimal.springbootlibrary.entity.Book;
 import com.chandimal.springbootlibrary.service.BookService;
+import com.chandimal.springbootlibrary.utils.ExtractJWT;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,21 +22,22 @@ public class BookController {
 
     @GetMapping("secure/currentloans/count")
     public int currentLoansCount(@RequestHeader(value= "Authorization")String token){
-        String userEmail = "testuser@email.com";
+        String userEmail = ExtractJWT.payloadJWTExtraction(token,"\"sub\"");
         return bookService.currentLoansCount(userEmail);
     }
 
     @GetMapping("secure/ischeckedout/byuser")
     public boolean checkoutBookByUser(@RequestHeader(value= "Authorization")String token, @RequestParam Long bookId){
 
-        String userEmail = "testuser@email.com";
+        String userEmail = ExtractJWT.payloadJWTExtraction(token,"\"sub\"");
+        System.out.println(userEmail);
         return  bookService.checkoutBookByUser(userEmail, bookId);
 
     }
 
     @PutMapping("/secure/checkout")
     public Book checkout (@RequestHeader(value= "Authorization")String token, @RequestParam Long bookId) throws Exception{
-        String userEmail = "testuser@email.com";
+        String userEmail = ExtractJWT.payloadJWTExtraction(token,"\"sub\"");
         return bookService.checkoutBook(userEmail,bookId);
     }
 }
