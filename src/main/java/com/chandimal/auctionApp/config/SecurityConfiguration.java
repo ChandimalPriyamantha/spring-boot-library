@@ -1,4 +1,4 @@
-package com.chandimal.springbootlibrary.config;
+package com.chandimal.auctionApp.config;
 
 
 import com.okta.spring.boot.oauth.Okta;

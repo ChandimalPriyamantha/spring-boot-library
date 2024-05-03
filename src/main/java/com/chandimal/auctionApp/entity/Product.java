@@ -1,15 +1,15 @@
-package com.chandimal.springbootlibrary.entity;
+package com.chandimal.auctionApp.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
+
 import lombok.Data;
-import lombok.NoArgsConstructor;
+
 
 
 @Entity
 @Table(name = "book")
 @Data
-public class Book {
+public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

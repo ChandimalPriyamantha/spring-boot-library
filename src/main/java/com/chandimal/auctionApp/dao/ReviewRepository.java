@@ -1,8 +1,7 @@
-package com.chandimal.springbootlibrary.dao;
+package com.chandimal.auctionApp.dao;
 
 
-import com.chandimal.springbootlibrary.entity.Book;
-import com.chandimal.springbootlibrary.entity.Review;
+import com.chandimal.auctionApp.entity.Review;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

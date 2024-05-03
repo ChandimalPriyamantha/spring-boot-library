@@ -1,4 +1,4 @@
-package com.chandimal.springbootlibrary.entity;
+package com.chandimal.auctionApp.entity;
 
 
 import jakarta.persistence.*;

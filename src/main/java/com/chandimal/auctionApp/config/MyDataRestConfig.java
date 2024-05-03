@@ -1,8 +1,8 @@
-package com.chandimal.springbootlibrary.config;
+package com.chandimal.auctionApp.config;
 
 
-import com.chandimal.springbootlibrary.entity.Book;
-import com.chandimal.springbootlibrary.entity.Review;
+import com.chandimal.auctionApp.entity.Product;
+import com.chandimal.auctionApp.entity.Review;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
@@ -23,11 +23,11 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
                 HttpMethod.DELETE,
                 HttpMethod.PUT};
 
-        config.exposeIdsFor(Book.class);
+        config.exposeIdsFor(Product.class);
         config.exposeIdsFor(Review.class);
 
 
-        disableHttpMethods(Book.class, config, theUnsupportedActions);
+        disableHttpMethods(Product.class, config, theUnsupportedActions);
         disableHttpMethods(Review.class,config,theUnsupportedActions);
 
 

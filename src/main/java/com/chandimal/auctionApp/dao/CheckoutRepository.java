@@ -1,6 +1,6 @@
-package com.chandimal.springbootlibrary.dao;
+package com.chandimal.auctionApp.dao;
 
-import com.chandimal.springbootlibrary.entity.Checkout;
+import com.chandimal.auctionApp.entity.Checkout;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

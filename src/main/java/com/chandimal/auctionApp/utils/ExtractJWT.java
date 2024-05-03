@@ -1,4 +1,4 @@
-package com.chandimal.springbootlibrary.utils;
+package com.chandimal.auctionApp.utils;
 
 import java.util.Base64;
 import java.util.HashMap;

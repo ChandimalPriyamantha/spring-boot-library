@@ -1,10 +1,10 @@
-package com.chandimal.springbootlibrary.service;
+package com.chandimal.auctionApp.service;
 
 
-import com.chandimal.springbootlibrary.dao.BookRepository;
-import com.chandimal.springbootlibrary.dao.CheckoutRepository;
-import com.chandimal.springbootlibrary.entity.Book;
-import com.chandimal.springbootlibrary.entity.Checkout;
+import com.chandimal.auctionApp.dao.ProductRepository;
+import com.chandimal.auctionApp.dao.CheckoutRepository;
+import com.chandimal.auctionApp.entity.Product;
+import com.chandimal.auctionApp.entity.Checkout;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,20 +14,20 @@ import java.util.Optional;
 
 @Service
 @Transactional
-public class BookService {
+public class ProductService {
 
-    private BookRepository bookRepository;
+    private ProductRepository productRepository;
     private CheckoutRepository checkoutRepository;
 
 
-    public BookService(BookRepository bookRepository, CheckoutRepository checkoutRepository) {
-        this.bookRepository = bookRepository;
+    public ProductService(ProductRepository productRepository, CheckoutRepository checkoutRepository) {
+        this.productRepository = productRepository;
         this.checkoutRepository = checkoutRepository;
     }
 
-    public Book checkoutBook (String userEmail, Long bookId) throws Exception{
+    public Product checkoutBook (String userEmail, Long bookId) throws Exception{
 
-        Optional<Book> book = bookRepository.findById(bookId);
+        Optional<Product> book = productRepository.findById(bookId);
         Checkout validateCheckout  = checkoutRepository.findByUserEmailAndBookId(userEmail, bookId);
 
         if(!book.isPresent() || validateCheckout != null || book.get().getCopiesAvailable() <= 0){
@@ -36,7 +36,7 @@ public class BookService {
         }
 
         book.get().setCopiesAvailable(book.get().getCopiesAvailable() - 1);
-        bookRepository.save(book.get());
+        productRepository.save(book.get());
 
         Checkout checkout = new Checkout(
 

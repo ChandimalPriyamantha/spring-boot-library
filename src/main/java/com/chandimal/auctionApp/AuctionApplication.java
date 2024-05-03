@@ -1,13 +1,13 @@
-package com.chandimal.springbootlibrary;
+package com.chandimal.auctionApp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringBootLibraryApplication {
+public class AuctionApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringBootLibraryApplication.class, args);
+		SpringApplication.run(AuctionApplication.class, args);
 	}
 
 }
